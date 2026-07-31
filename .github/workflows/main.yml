@@ -42,7 +42,9 @@ jobs:
         ./zig-out/bin/github-stats
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        EXCLUDE_REPOS: ${{ secrets.EXCLUDE_REPOS }}
+        # Forks (upstream history not authored here) plus generated/notes
+        # repos, excluded so the stats reflect actually-authored work.
+        EXCLUDE_REPOS: "seanthimons/EPATADA,seanthimons/EJAM-open,seanthimons/PODUAM,seanthimons/hermes-agent,seanthimons/538_data,seanthimons/harmonize-wq,seanthimons/OHM-g,seanthimons/camcorder,seanthimons/toxvaldbstage,seanthimons/THREAT,seanthimons/ccte__chem_expo_data_mgmt_scripts,seanthimons/toxvaldbmain,seanthimons/mirai,seanthimons/claude-buddy,seanthimons/standartox,seanthimons/30DayMapChallenge,seanthimons/PRISMA-Checklist,seanthimons/get-shit-done,seanthimons/apipkgen,seanthimons/bsicons,seanthimons/data-science,seanthimons/chemical-janitor,seanthimons/autonewsmd,seanthimons/skills,seanthimons/machine-proverbs,seanthimons/obsidian-vault,seanthimons/settings,seanthimons/github-stats"
         EXCLUDE_LANGS: ${{ secrets.EXCLUDE_LANGS }}
         EXCLUDE_PRIVATE: "false"
         SILENT: "true"
